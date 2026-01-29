@@ -542,3 +542,275 @@ header {
     text-align: center;
     font-size: 13px;
 }
+
+/* =========================================
+   FIXES GLOBALES (siempre)
+========================================= */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Títulos/hero con ancho fluido */
+.hero-nosotros {
+  width: min(580px, 92%);
+}
+
+/* Evitar scroll horizontal por anchos fijos */
+.copyright {
+  width: min(1170px, 92%);
+  margin-inline: auto;
+}
+
+/* Contenedor historia: que no desborde */
+.container-historia {
+  width: min(1200px, 92%);
+  margin-inline: auto;
+}
+
+/* Imagen historia: estaba con margin-right y top fijo, mejor fluido */
+.image-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  min-height: 420px; /* base desktop */
+}
+
+.img-historia {
+  margin: 0;               /* antes margin-top/right */
+  border-radius: 12px;
+  width: 100%;
+  max-width: 520px;        /* controla el tamaño */
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.25);
+}
+
+/* Badge + icon + texto: que se posicionen sin romper */
+.badge {
+  right: 18px;
+  bottom: 18px;
+}
+
+.image-section .material-symbols-outlined {
+  right: 120px;
+  bottom: 66px;
+}
+
+.span-experiencia {
+  right: 28px;
+  bottom: 48px;
+}
+
+/* Métricas: quitar margin-inline 80px (rompe en móvil) */
+.metric-container {
+  width: min(1200px, 92%);
+  margin-inline: auto;
+  border-radius: 12px;
+}
+
+/* Región: ancho fluido */
+.region-container {
+  width: min(1200px, 92%);
+  margin-inline: auto;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.section-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 18px;
+}
+
+.img-region {
+  width: 100%;
+  max-width: 560px;
+  border-radius: 12px;
+}
+
+/* Valores: padding adaptable */
+.valores {
+  padding: 60px 4%;
+}
+
+/* =========================================
+   TABLET (<= 992px)
+========================================= */
+@media (max-width: 992px) {
+  .navbar {
+    justify-content: center;
+  }
+
+  .nav-links {
+    gap: 18px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .hero-nosotros h2 {
+    font-size: 40px;
+  }
+
+  .text-section {
+    padding: 28px;
+  }
+
+  .text-section h2 {
+    font-size: 32px;
+  }
+
+  /* Métricas: wrap correcto */
+  .metric-container {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 14px;
+    padding: 16px;
+  }
+
+  .metric-box {
+    width: min(240px, 100%);
+  }
+
+  /* Region: apila mejor */
+  .section-text {
+    padding: 26px;
+  }
+}
+
+/* =========================================
+   MOBILE (<= 768px)
+========================================= */
+@media (max-width: 768px) {
+  .head img {
+    position: static;
+    margin: 0;
+    height: 38px;
+    width: 38px;
+  }
+
+  .navbar {
+    padding: 12px;
+  }
+
+  .nav-links a {
+    font-size: 14px;
+  }
+
+  .hero-nosotros {
+    margin-top: 50px;
+    margin-bottom: 90px;
+  }
+
+  .hero-nosotros h2 {
+    font-size: 34px;
+  }
+
+  /* Historia: apilar y que la imagen no tenga "min-height gigante" */
+  .container-historia {
+    flex-direction: column;
+    margin-bottom: 90px;
+  }
+
+  .image-section {
+    min-height: auto;
+    padding: 16px 16px 22px;
+  }
+
+  /* Badge y textos: mantener dentro de la imagen sin posiciones raras */
+  .badge {
+    bottom: 14px;
+    right: 14px;
+    width: 120px;
+    height: auto;
+    padding: 10px 12px;
+  }
+
+  .image-section .material-symbols-outlined {
+    bottom: 58px;
+    right: 110px;
+  }
+
+  .span-experiencia {
+    bottom: 44px;
+    right: 24px;
+    font-size: 12px;
+  }
+
+  /* Métricas: grilla 2 columnas (mejor que flex en móvil) */
+  .metric-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    padding: 14px;
+  }
+
+  .metric-box {
+    width: 100%;
+    padding: 16px;
+  }
+
+  /* Región: columna */
+  .region-container {
+    flex-direction: column;
+    margin-top: 70px;
+  }
+
+  .section-image {
+    min-height: auto;
+    padding: 14px;
+  }
+
+  .section-text {
+    padding: 18px;
+  }
+
+  .section-text h3 {
+    font-size: 24px;
+  }
+
+  /* Valores */
+  .valores h2 {
+    font-size: 28px;
+  }
+
+  /* Footer */
+  .footer-container {
+    justify-content: flex-start;
+  }
+}
+
+/* =========================================
+   MOBILE CHICO (<= 480px)
+========================================= */
+@media (max-width: 480px) {
+  .hero-nosotros h2 {
+    font-size: 30px;
+  }
+
+  /* Métricas: una columna */
+  .metric-container {
+    grid-template-columns: 1fr;
+  }
+
+  .text-section h2 {
+    font-size: 28px;
+  }
+
+  .text-section p {
+    font-size: 15px;
+  }
+
+  .cta {
+    padding: 60px 16px;
+  }
+
+  .cta h2 {
+    font-size: 24px;
+  }
+
+  .cta p {
+    font-size: 16px;
+  }
+}

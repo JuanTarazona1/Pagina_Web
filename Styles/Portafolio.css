@@ -15,6 +15,49 @@ body {
     z-index: 0;
 }
 
+/* ===== FIXES GLOBALES (no dependen de breakpoints) ===== */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Evita que anchos fijos rompan */
+.hero-portafolio,
+.resultados,
+.portafolio-titulo,
+.titulo-clientes {
+  width: min(680px, 92%);
+}
+
+/* Contenedores que se iban al carajo por margen */
+.metric-container,
+.container-comentarios {
+  margin-inline: auto;
+  width: min(1100px, 92%);
+  border-radius: 12px;
+}
+
+/* El copyright NO puede tener ancho fijo */
+.copyright {
+  width: min(1170px, 92%);
+  margin-inline: auto;
+}
+
+/* Proceso: la imagen NO debe ser absolute */
+.proceso-img {
+  position: relative;
+}
+.proceso-img img {
+  position: static; /* antes absolute */
+  width: 100%;
+}
+.etiqueta {
+  right: auto;   /* antes right:400px */
+  top: auto;     /* lo controlamos con layout */
+}
+
+
 header {
     box-shadow: 1px 1px 3px rgb(152, 150, 150);
     border-bottom: 2px solid #e22222;
@@ -114,8 +157,8 @@ header {
 .metric-container {
     display: flex;
     justify-content: space-around;
-    margin-top: -130px;
-    margin-inline: 80px;
+    /* margin-top: -130px;
+    margin-inline: 80px; */
     gap: 20px;
     padding: 20px;
     background-color: #f5f5f5;
@@ -609,4 +652,163 @@ header {
     color: #b1b1b1;
     text-align: center;
     font-size: 13px;
+}
+
+/* ====== TABLET (<= 992px) ====== */
+@media (max-width: 992px) {
+  .nav-links {
+    gap: 18px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .metric-container,
+  .container-comentarios {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .metric-box {
+    width: min(260px, 100%);
+  }
+
+  .cajas {
+    width: min(360px, 100%);
+    height: auto; /* antes 240px fijo */
+  }
+
+  .proceso {
+    padding: 30px 18px;
+    gap: 24px;
+  }
+
+  .proceso-texto h2 {
+    font-size: 28px;
+  }
+
+  /* etiqueta sobre imagen sin posiciones raras */
+  .etiqueta {
+    position: static;
+    margin: 0 0 12px 0;
+    width: fit-content;
+  }
+}
+
+
+/* ====== MOBILE (<= 768px) ====== */
+@media (max-width: 768px) {
+  /* Header */
+  .head img {
+    position: static;
+    margin: 0;
+  }
+  .logo {
+    justify-self: center; /* Centra el logo en pantallas pequeñas */
+    margin: 5px;
+  }
+  .navbar {
+    justify-content: center;
+    padding: 12px;
+  }
+
+  .nav-links a {
+    font-size: 14px;
+  }
+
+  /* HERO / TITULOS */
+  .hero-portafolio h2 {
+    font-size: 34px;
+  }
+  .resultados h2,
+  .portafolio-titulo h2 {
+    font-size: 28px;
+  }
+
+  /* métricas: 2 columnas o 1 según ancho */
+  .metric-container {
+    margin-top: 0;
+    padding: 14px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .metric-box {
+    width: 100%;
+    padding: 16px;
+  }
+
+  /* Gallery: 1 columna más cómodo */
+  .gallery {
+    grid-template-columns: 1fr;
+    width: 92%;
+  }
+
+  /* Comentarios */
+  .container-comentarios {
+    margin-top: 0;
+    padding: 14px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .cajas {
+    width: 100%;
+    height: auto;
+  }
+
+  /* Proceso: apilar */
+  .proceso {
+    flex-direction: column;
+    padding: 26px 14px;
+  }
+
+  .proceso-img {
+    order: -1; /* imagen arriba, texto abajo (opcional) */
+  }
+
+  .proceso-texto h2 {
+    font-size: 26px;
+  }
+
+  /* CTA */
+  .cta {
+    padding: 60px 16px;
+  }
+
+  .cta h2 {
+    font-size: 26px;
+  }
+  .cta p {
+    font-size: 16px;
+  }
+}
+
+
+/* ====== MOBILE CHICO (<= 480px) ====== */
+@media (max-width: 480px) {
+  .metric-container {
+    grid-template-columns: 1fr; /* una sola columna */
+  }
+
+  .hero-portafolio {
+    margin-top: 50px;
+    margin-bottom: 100px;
+  }
+
+  .resultados {
+    margin-top: 120px;
+    margin-bottom: 80px;
+  }
+
+  .portafolio-titulo {
+    margin-top: 120px;
+    margin-bottom: 60px;
+  }
+
+  .btn {
+    width: 92%;
+    display: inline-block;
+  }
 }

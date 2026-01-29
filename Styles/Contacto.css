@@ -595,3 +595,217 @@ button {
     text-align: center;
     font-size: 13px;
 }
+
+/* ===========================
+   FIXES GLOBALES
+=========================== */
+img { max-width: 100%; height: auto; display: block; }
+
+.hero-contacto { width: min(580px, 92%); }
+
+.container-informacion{
+  width: min(1200px, 92%);
+  margin-inline: auto;
+  position: relative;
+}
+
+/* La imagen del costado (derecha) */
+.image-section{
+  flex: 1 1 420px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.img-historia{
+  margin: 0;                /* antes margin-top/right */
+  width: 100%;
+  max-width: 560px;
+  border-radius: 12px;
+}
+
+/* Cards de info: quitar ancho fijo y hacerlas fluidas */
+.informacion-contenedor{
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.card{
+  width: 100%;              /* antes 480px */
+  max-width: 560px;         /* limite prolijo en desktop */
+  border-radius: 12px;
+  margin-bottom: 0;
+}
+
+/* Caja "Visitanos": NO superponer con margin-top negativo */
+.container-metricbox{
+  position: static;
+  margin: 18px 0 0;         /* antes margin-left auto + margin-top -300 */
+  max-width: 560px;
+  padding: 0 40px 30px;     /* acompaña al padding del texto */
+  background: transparent;
+  text-align: left;
+}
+
+.metric-box{
+  width: 100%;              /* antes 360px */
+  max-width: 560px;
+  height: auto;
+  max-height: none;
+}
+
+.metric-box span{
+  margin: 0;                /* antes margin:100px (rompe) */
+  display: block;
+  font-size: 18px;
+  margin-bottom: 6px;
+}
+
+/* ===========================
+   SECCIÓN "CUÉNTANOS"
+=========================== */
+.section-cuentanos{
+  width: min(1200px, 92%);
+  margin-inline: auto;
+  gap: 30px;
+  align-items: flex-start;
+}
+
+/* Columna izquierda */
+.container-cuentanos{
+  max-width: 540px;
+  width: 100%;
+}
+
+/* Columna derecha (formulario) */
+.div-container{
+  width: 100%;
+  height: auto;             /* antes 800px */
+  margin: 0;
+  margin-bottom: 60px;
+  text-align: center;
+}
+
+/* Form header / form fluidos */
+.div-form-header{
+  width: 100%;              /* antes 700px */
+  max-width: 700px;
+}
+
+form{
+  width: 100%;              /* antes 700px */
+  max-width: 700px;
+  margin: 0 auto;           /* antes margin:0 */
+  height: auto;             /* antes 675px */
+}
+
+/* Evitar que algo se vaya de ancho */
+.copyright{
+  width: min(1170px, 92%);
+  margin-inline: auto;
+}
+
+/* ===========================
+   TABLET (<= 992px)
+=========================== */
+@media (max-width: 992px){
+  .navbar{ justify-content: center; }
+  .nav-links{
+    gap: 18px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .hero-contacto h2{ font-size: 40px; }
+
+  /* la info y la imagen se apilan mejor */
+  .container-informacion{
+    flex-direction: column;
+  }
+
+  .div-container-informacion{
+    padding: 28px;
+  }
+
+  .container-metricbox{
+    padding: 0 28px 28px;
+  }
+
+  .card{ max-width: 100%; }
+
+  .section-cuentanos{
+    flex-direction: column;
+  }
+
+  .container-cuentanos{
+    max-width: 100%;
+  }
+}
+
+/* ===========================
+   MOBILE (<= 768px)
+=========================== */
+@media (max-width: 768px){
+  .head img{
+    position: static;
+    margin: 0;
+    height: 38px;
+    width: 38px;
+  }
+
+  .navbar{ padding: 12px; }
+  .nav-links a{ font-size: 14px; }
+
+  .hero-contacto{
+    margin-top: 50px;
+    margin-bottom: 90px;
+  }
+  .hero-contacto h2{ font-size: 34px; }
+
+  .div-container-informacion{
+    padding: 18px;
+  }
+
+  /* cards: que no hagan zoom exagerado en móvil */
+  .card:hover{ transform: none; }
+
+  /* Form: 2 columnas -> 1 */
+  form{
+    grid-template-columns: 1fr;
+    gap: 14px;
+    padding: 16px;
+  }
+
+  .full-width,
+  button,
+  .final-message{
+    grid-column: span 1;
+  }
+
+  .div-form{ margin: 22px 0 0; }
+  .div-form-header h4{ font-size: 20px; }
+
+  .container-preguntas h3{ font-size: 26px; }
+
+  .footer-container{
+    justify-content: flex-start;
+  }
+}
+
+/* ===========================
+   MOBILE CHICO (<= 480px)
+=========================== */
+@media (max-width: 480px){
+  .hero-contacto h2{ font-size: 30px; }
+
+  .div-container-informacion h2{ font-size: 26px; }
+  .div-container-informacion p{ font-size: 15px; }
+
+  .container-cuentanos h2{ font-size: 26px; }
+
+  .metric-box button{
+    width: 100%;
+  }
+}
