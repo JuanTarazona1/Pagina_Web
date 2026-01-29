@@ -70,10 +70,17 @@ header {
     font-size: 20px;
 }
 
-.hero {
+/*VIEJO=> .hero {
     padding: 60px 20px;
     width: 100%;
+} */
+
+/* NUEVO */
+.hero {
+  position: relative;
+  margin-bottom: 80px;
 }
+
 
 .container {
     max-width: 1200px;
@@ -81,9 +88,24 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    flex-wrap: wrap;
+    flex-wrap: wrap; /* OJO ACA */
     gap: 40px;
 }
+
+/* CONTAINER QUE RECOMIENDO */
+/* .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+} */
+    /* ¿POR QUE?
+    padding: 0 20px → evita que el contenido “toque” los bordes en móvil
+    margin: 0 auto → más estándar que solo auto
+    ❌ flex-wrap: wrap → mejor manejar el wrap por media query, no siempre */
 
 .hero-text {
     flex: 1;
@@ -213,16 +235,13 @@ header {
 }
 
 .image-placeholder {
-    background-color: #f1f2f4;
-    height: 300px;
-    width: 420px;
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 48px;
-    color: #aaa;
-    margin-bottom: 20px;
+  background-color: #f1f2f4;
+  height: 300px;
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;         /* recorta imagen dentro del marco */
+  position: relative;       /* por si después ponés overlays */
+  display: block;           /* no hace falta flex acá */
 }
 
 .circulos {
@@ -253,12 +272,22 @@ header {
     z-index: 10;
 }
 
-.img-prueba {
+/* VIEJO => .img-prueba {
     max-height: 300px;
     max-width: 320px;
     margin: auto;
     border-radius: 10px;
+} */
+
+/* NUEVO */
+.img-prueba {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;        /* llena el marco sin deformar */
+  display: block;
 }
+
+
 
 .features {
     list-style: none;
@@ -268,7 +297,7 @@ header {
 .features li {
     display: flex;
     align-items: center;
-    margin-bottom: 10px;
+    margin: 10px;
     color: #111;
 }
 
@@ -322,7 +351,7 @@ header {
     border-radius: 12px;
     text-align: left;
     box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-    position: relative;
+    /* position: relative; */
     border: 1px solid rgb(218, 218, 218);
     border-left: 5px solid red;
     transition: transform 0.2s ease;
@@ -370,7 +399,7 @@ header {
 .por-que-elegirnos {
     text-align: center;
     padding: 40px 0;
-    width: 1000px;
+    width: 1000px; /* NO DAR ANCHO FIJO */
     margin: auto;
     background-color: #ffffff;
     border-radius: 15px;
@@ -651,7 +680,7 @@ button {
 
 .copyright {
     border-top: 0.01px solid rgb(70, 70, 70);
-    width: 1170px;
+    width: 1170px; /* NO DAR ANCHO FIJO */
     margin-top: 30px;
 }
 
@@ -691,7 +720,7 @@ button {
 
 .map {
     flex: 2;
-    min-width: 350px;
+    min-width: 350px; /* NO DAR ANCHO MINIMO */
     max-width: 530px;
     height: 350px; 
     background: #eee; 
@@ -782,36 +811,280 @@ button {
 .card-header {
     position: relative;
 }
-/*
-@media (max-width: 670px) {
-    .nav-links {
-        position: fixed;
-        top: 0;
-        left: -100%;
-        width: 250px;
-        height: 100%;
-        background: #fff;
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 60px 20px;
-        gap: 20px;
-        transition: left 0.3s ease;
-    }
 
-    .nav-links.show {
-        left: 0;
-    }
 
-    .menu-btn {
-        display: block;
-    }
+/* MEDIA QUERYS NUEVOS */
+/* Tablet / pantallas medianas */
+@media (max-width: 992px) {
+
+  .hero-text {
+    padding-left: 0;
+  }
+  .hero-text h1 {
+    font-size: 52px;
+  }
+  .stats {
+    gap: 50px;
+    margin: 0;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+  .image-box {
+    margin-bottom: 40px;
+  }
+  .image-placeholder {
+    width: 100%;
+    height: auto;
+    min-height: 260px;
+  }
+  .por-que-elegirnos {
+    width: 92%;
+  }
+  .portafolio-titulo,
+  .div-container,
+  .div-form-header,
+  form {
+    width: 92%;
+  }
+  .copyright {
+    width: 92%;
+  }
+  .div-map-container {
+    width: 92%;
+  }
+}
+/* ===== Móvil ===== */
+@media (max-width: 768px) {
+  /* Header */
+  .head img {
+    position: static;
+    margin: 0;
+    height: 38px;
+    width: 38px;
+  }
+  .logo {
+    justify-self: center; /* Centra el logo en pantallas pequeñas */
+    margin: 5px;
+  }
+  .navbar {
+    justify-content: center; /* Centro los link del nav (va a gusto eso) */
+    padding: 12px;
+  }
+  .nav-links {
+    gap: 16px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .nav-links a {
+    font-size: 14px;
+  }
+  /* Hero: apilar */
+  .container {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 24px;
+  }
+  .hero-text,
+  .hero-image {
+    min-width: 0;
+  }
+  .hero-text h1 {
+    font-size: 42px;
+    margin-top: 15px;
+  }
+  .hero-text p {
+    font-size: 15px;
+  }
+  .buttons {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .stats {
+    gap: 24px;
+    margin: 0;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+  /* Imagen del hero */
+  .image-box {
+    max-width: 100%;
+    padding: 18px;
+    margin-bottom: 20px;
+  }
+  .image-placeholder {
+    width: 100%;
+    height: auto;
+    min-height: 220px;
+  }
+  .img-prueba {
+    max-width: 100%;
+    max-height: none;
+    height: auto;
+  }
+  /* Evitar que los circulos se salgan */
+  .rojo {
+    left: -20px;
+    bottom: -80px;
+  }
+  .amarillo {
+    right: -20px;
+    top: -300px;
+  }
+  /* Secciones con width fijo -> fluido */
+  .por-que-elegirnos {
+    width: 92%;
+    padding: 28px 14px;
+  }
+  .portafolio-titulo {
+    width: 92%;
+  }
+
+  /* Adaptación de Nuestro Servicios */
+  .servicios {
+    grid-template-columns: repeat(2, 1fr); /* Hago que los cuadros se formen de a dos columnas */
+    grid-template-rows: repeat(3, 1fr) /* y de a tres filas */
+  }
+  /* Formulario */
+  .div-container {
+    width: 92%;
+    height: auto;
+  }
+  .div-form-header {
+    width: 92%;
+  }
+  form {
+    width: 92%;
+    grid-template-columns: 1fr;
+  }
+  .full-width,
+  button,
+  .final-message {
+    grid-column: span 1;
+  }
+  /* Mapa: columna */
+  .div-map-container {
+    flex-direction: column;
+    width: 92%;
+    gap: 16px;
+  }
+  .map {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    height: 320px;
+  }
+  .img-section-map {
+    width: 100%;
+    max-width: 100%;
+  }
+  /* Footer */
+  .footer-container {
+    justify-content: flex-start;
+  }
+  .copyright {
+    width: 92%;
+  }
+}
+/* ===== Móvil chico ===== */
+@media (max-width: 480px) {
+  .hero {
+    padding: 40px 14px;
+  }
+
+  .hero-text h1 {
+    font-size: 34px;
+  }
+
+  .nav-links {
+    gap: 10px;
+  }
+
+  .btn-primary,
+  .btn-outline {
+    font-size: 12px;
+    padding: 10px 12px;
+  }
+
+  .map-container h2 {
+    font-size: 30px;
+  }
 }
 
-.menu-toggle {
-    display: none;
-    font-size: 1.8rem;
-    background: none;
-    border: none;
-    cursor: pointer;
+@media (max-width: 768px) {
+  /* Evita scroll horizontal por elementos más anchos */
+  html, body {
+    overflow-x: hidden;
+  }
+
+  /* Cualquier bloque con ancho fijo: que sea fluido */
+  .por-que-elegirnos,
+  .div-container,
+  .div-form-header,
+  form,
+  .portafolio-titulo,
+  .copyright,
+  .div-map-container {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  /* El contenedor del hero tenía padding-left grande */
+  .hero-text {
+    padding-left: 0;
+  }
+
+  /* Imagen hero: tenía width fija (420px) */
+  .image-box,
+  .image-placeholder {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  /* Map: min-width te rompe en pantallas chicas */
+  .map {
+    min-width: 0;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .img-section-map {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  /* Form: 2 columnas -> 1 */
+  form {
+    grid-template-columns: 1fr;
+  }
+
+  .full-width,
+  button,
+  .final-message {
+    grid-column: span 1;
+  }
+
+    /* El hero ya no debe superponerse */
+  .hero {
+    margin-bottom: 120px;
+  }
+
+  /* Imagen del hero: que fluya normal */
+  .hero-image {
+    position: static;
+  }
+
+  /* Cualquier imagen grande arriba */
+  .image-box {
+    margin-bottom: 0;
+  }
+
+  /* Servicios bajan correctamente */
+  .servicios-titulo {
+    margin-top: 0;
+    padding-top: 20px;
+  }
+
+  .image-placeholder{
+    height: 220px;
+  }
 }
-*/
