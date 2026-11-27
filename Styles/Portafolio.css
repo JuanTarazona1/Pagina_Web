@@ -17,9 +17,9 @@ body {
 
 /* ===== FIXES GLOBALES (no dependen de breakpoints) ===== */
 img {
-  max-width: 100%;
-  height: auto;
-  display: block;
+    max-width: 100%;
+    height: auto;
+    display: block;
 }
 
 /* Evita que anchos fijos rompan */
@@ -27,7 +27,7 @@ img {
 .resultados,
 .portafolio-titulo,
 .titulo-clientes {
-  width: min(680px, 92%);
+    width: min(680px, 92%);
 }
 
 /* Contenedores que se iban al carajo por margen */
@@ -45,13 +45,8 @@ img {
 }
 
 /* Proceso: la imagen NO debe ser absolute */
-.proceso-img {
-  position: relative;
-}
-.proceso-img img {
-  position: static; /* antes absolute */
-  width: 100%;
-}
+
+
 .etiqueta {
   right: auto;   /* antes right:400px */
   top: auto;     /* lo controlamos con layout */
@@ -75,19 +70,22 @@ header {
 }
 
 .navbar {
-    max-width: 1200px;
-    margin: auto;
-    padding: 15px;
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 15px 3vw;
     display: flex;
-    justify-content: space-between;
     justify-content: flex-end;
     align-items: center;
 }
 
 .nav-links {
-    list-style: none;
     display: flex;
+    align-items: center;
     gap: 40px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
 .nav-links a {
@@ -118,10 +116,9 @@ header {
     margin: auto;
     margin-top: 80px;
     margin-bottom: 160px;
-    width: 680px;
 }
 
-.hero-portafolio h2 {
+.hero-portafolio h1 {
     font-size: 52px;
     font-weight: 700;
     padding: 10px;
@@ -131,14 +128,14 @@ header {
     color: #666;
     font-size: 17px;
     line-height: 25px;
+    text-wrap: balance;
 }
 
 .resultados {
     text-align: center;
     margin: auto;
-    margin-top: 200px;
+    margin-top: -80px;
     margin-bottom: 160px;
-    width: 680px;
 }
 
 .resultados h2 {
@@ -157,8 +154,7 @@ header {
 .metric-container {
     display: flex;
     justify-content: space-around;
-    /* margin-top: -130px;
-    margin-inline: 80px; */
+    margin-top: -80px;
     gap: 20px;
     padding: 20px;
     background-color: #f5f5f5;
@@ -220,10 +216,10 @@ header {
     margin: auto;
     margin-top: 200px;
     margin-bottom: 100px;
-    width: 680px;
 }
 
 .portafolio-titulo h2 {
+    margin-top: -80px;
     font-size: 36px;
     font-weight: 700;
     padding: 10px;
@@ -237,9 +233,9 @@ header {
 
 .gallery {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 30px;
-    width: 90%;
+    width: 70%;
     margin: auto;
 }
 
@@ -400,19 +396,23 @@ header {
 }
 
 .proceso {
-    margin-top: 60px;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
+    margin-top: 30px;
     padding: 50px;
-    gap: 40px;
 }
 
 .proceso-texto {
-    flex: 1;
+    max-width: 800px;
+    margin: auto;
+    background: #fff;
+    border-radius: 18px;
+    padding: 40px;
+    display: grid;
+    align-items: center;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
 }
 
 .proceso-texto span {
+    width: 143px;
     background: #d32f2f;
     color: #fff;
     padding: 5px 15px;
@@ -472,40 +472,14 @@ header {
 }
 
 .proceso-img {
-    flex: 1;
-    position: relative;
-}
-
-.etiqueta {
-    position: absolute;
-    top: 106px;
-    right: 400px;
-    width: 190px;
-    height: 50px;
-    background: #fff;
-    border: 2px solid #e22222;
-    padding: 8px 15px;
-    border-radius: 8px;
-    font-size: 15px;
-    font-weight: bold;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    z-index: 10;
-}
-
-.etiqueta .material-symbols-outlined {
-    font-size: 22px;
-    color: #d32f2f;
+    margin: auto;
+    padding-left: px;
 }
 
 .proceso-img img {
-    width: 100%;
+    width: 30%;
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    position: absolute;
-    top: 130px;
 }
 
 .cta {
@@ -656,6 +630,10 @@ header {
 
 /* ====== TABLET (<= 992px) ====== */
 @media (max-width: 992px) {
+  .navbar {
+    justify-content: center;
+  }
+
   .nav-links {
     gap: 18px;
     flex-wrap: wrap;
@@ -699,12 +677,11 @@ header {
 @media (max-width: 768px) {
   /* Header */
   .head img {
+    display: block;
     position: static;
-    margin: 0;
-  }
-  .logo {
-    justify-self: center; /* Centra el logo en pantallas pequeñas */
-    margin: 5px;
+    margin: 0 auto;
+    height: 38px;
+    width: 38px;
   }
   .navbar {
     justify-content: center;
@@ -716,8 +693,9 @@ header {
   }
 
   /* HERO / TITULOS */
-  .hero-portafolio h2 {
+  .hero-portafolio h1 {
     font-size: 34px;
+    width: 100%;
   }
   .resultados h2,
   .portafolio-titulo h2 {
@@ -741,7 +719,7 @@ header {
   /* Gallery: 1 columna más cómodo */
   .gallery {
     grid-template-columns: 1fr;
-    width: 92%;
+    width: 80%;
   }
 
   /* Comentarios */
@@ -783,6 +761,9 @@ header {
   .cta p {
     font-size: 16px;
   }
+  .footer-container {
+    justify-content: flex-start;
+}
 }
 
 
@@ -808,7 +789,6 @@ header {
   }
 
   .btn {
-    width: 92%;
     display: inline-block;
   }
 }

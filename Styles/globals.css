@@ -18,6 +18,7 @@ body {
 header {
     box-shadow: 1px 1px 3px rgb(152, 150, 150);
     border-bottom: 2px solid #e22222;
+    width: 100%;
 }
 
 .head img {
@@ -32,19 +33,22 @@ header {
 }
 
 .navbar {
-    max-width: 1200px;
-    margin: auto;
-    padding: 15px;
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 15px 3vw;
     display: flex;
-    justify-content: space-between;
     justify-content: flex-end;
     align-items: center;
 }
 
 .nav-links {
-    list-style: none;
     display: flex;
+    align-items: center;
     gap: 40px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
 .nav-links a {
@@ -81,7 +85,6 @@ header {
   margin-bottom: 80px;
 }
 
-
 .container {
     max-width: 1200px;
     margin: auto;
@@ -102,7 +105,7 @@ header {
   justify-content: space-between;
   gap: 40px;
 } */
-    /* ¿POR QUE?
+    /* ¿POR QUÉ?
     padding: 0 20px → evita que el contenido “toque” los bordes en móvil
     margin: 0 auto → más estándar que solo auto
     ❌ flex-wrap: wrap → mejor manejar el wrap por media query, no siempre */
@@ -228,6 +231,7 @@ header {
     max-height: 440px;
     max-width: 480px;
     margin-bottom: 120px;
+    margin-top: 50px;
     background-color: white;
     border-radius: 20px;
     padding: 30px;
@@ -239,52 +243,16 @@ header {
   height: 300px;
   width: 100%;
   border-radius: 12px;
-  overflow: hidden;         /* recorta imagen dentro del marco */
-  position: relative;       /* por si después ponés overlays */
-  display: block;           /* no hace falta flex acá */
-}
-
-.circulos {
-    position: relative;
-    border-radius: 50%;
-    opacity: 0.16;
-}
-
-.rojo {
-    width: 95px;
-    height: 95px;
-    background-color: #e22222;
-    position: absolute;
-    bottom: -110px;
-    left: -45px;
-    border-radius: 100%;
-    z-index: 10;
-}
-
-.amarillo {
-    width: 95px;
-    height: 95px;
-    background-color: yellow;
-    position: absolute;
-    top: -370px;
-    right: -50px;
-    border-radius: 100%;
-    z-index: 10;
-}
-
-/* VIEJO => .img-prueba {
-    max-height: 300px;
-    max-width: 320px;
-    margin: auto;
-    border-radius: 10px;
-} */
-
-/* NUEVO */
-.img-prueba {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;        /* llena el marco sin deformar */
+  overflow: hidden;
+  position: relative;
   display: block;
+}
+
+.img-prueba {
+    margin: auto;
+    width: 75%;
+    height: 100%;
+    display: block;
 }
 
 
@@ -322,7 +290,7 @@ header {
 
 .servicios-titulo {
     margin: auto;
-    margin-top: -35px;
+    margin-top: -100px;
     text-align: center;
     line-height: 48px;
 }
@@ -333,6 +301,8 @@ header {
 
 .servicios-titulo p {
     color: #666666;
+    text-wrap: balance;
+    line-height: 1.6;
 }
 
 .servicios {
@@ -399,8 +369,9 @@ header {
 .por-que-elegirnos {
     text-align: center;
     padding: 40px 0;
-    width: 1000px; /* NO DAR ANCHO FIJO */
+    width: 1000px;
     margin: auto;
+    margin-top: 80px;
     background-color: #ffffff;
     border-radius: 15px;
     box-shadow: 0 3px 3px rgb(213, 213, 213);
@@ -462,7 +433,7 @@ header {
     text-align: center;
     margin: 40px;
     margin-top: 100px;
-    line-height: 40px;
+    line-height: 1.5;
 }
 
 .div-form h2 {
@@ -546,6 +517,34 @@ textarea {
     font-size: 12px;
     color: #666;
     margin-top: 5px;
+}
+
+.image-reference input[type="file"]::file-selector-button {
+    background: #d32f2f;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 12px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.image-reference input[type="file"]::file-selector-button:hover {
+    background: #c52929;
+}
+
+.image-file-name {
+    margin: 0;
+    color: #666;
+    font-size: 12px;
+}
+
+.image-preview {
+    max-width: 180px;
+    max-height: 180px;
+    object-fit: contain;
+    border: 1px solid #ccc;
+    border-radius: 6px;
 }
 
 button {
@@ -748,13 +747,14 @@ button {
     color: #555;
     font-size: 15px;
     line-height: 25px;
+    text-wrap: balance;
 }
 
 .galeria {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 30px;
-    width: 90%;
+    width: 70%;
     margin: auto;
 }
 
@@ -817,6 +817,15 @@ button {
 /* Tablet / pantallas medianas */
 @media (max-width: 992px) {
 
+  .navbar {
+    justify-content: center;
+  }
+  .nav-links {
+    gap: 18px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
   .hero-text {
     padding-left: 0;
   }
@@ -853,137 +862,176 @@ button {
     width: 92%;
   }
 }
-/* ===== Móvil ===== */
+/* ===== Movil ===== */
 @media (max-width: 768px) {
-  /* Header */
-  .head img {
+
+.head img {
+    display: block;
     position: static;
-    margin: 0;
+    margin: 0 auto;
     height: 38px;
     width: 38px;
-  }
-  .logo {
-    justify-self: center; /* Centra el logo en pantallas pequeñas */
-    margin: 5px;
-  }
-  .navbar {
-    justify-content: center; /* Centro los link del nav (va a gusto eso) */
+}
+
+.navbar {
+    justify-content: center;
     padding: 12px;
-  }
-  .nav-links {
-    gap: 16px;
+}
+
+.nav-links {
+    gap: 18px;
     flex-wrap: wrap;
     justify-content: center;
-  }
-  .nav-links a {
+}
+
+.nav-links a {
     font-size: 14px;
-  }
+}
+
   /* Hero: apilar */
-  .container {
+.container {
     flex-direction: column;
     align-items: stretch;
     gap: 24px;
-  }
-  .hero-text,
-  .hero-image {
+}
+
+.hero-text,
+.hero-image {
     min-width: 0;
-  }
-  .hero-text h1 {
+}
+
+.hero-text {
+    width: 100%;
+}
+
+.hero-text h1 {
+    margin-top: 20px;
     font-size: 42px;
-    margin-top: 15px;
-  }
-  .hero-text p {
+    text-align: center;
+}
+
+.hero-text p {
     font-size: 15px;
-  }
-  .buttons {
+    white-space: normal;
+    text-align: center;
+    text-wrap: balance;
+}
+
+.hero-text p br {
+    display: none;
+}
+
+.hero-portafolio h1 {
+    font-size: 30px;
+}
+
+.buttons {
+    width: 100%;
+    padding-top: 20px;
     flex-wrap: wrap;
+    justify-content: center;
     gap: 10px;
-  }
-  .stats {
+}
+
+.stats {
+    width: 100%;
     gap: 24px;
     margin: 0;
-    justify-content: flex-start;
+    justify-content: center;
     flex-wrap: wrap;
-  }
+}
+
   /* Imagen del hero */
-  .image-box {
+.image-box {
     max-width: 100%;
     padding: 18px;
     margin-bottom: 20px;
-  }
-  .image-placeholder {
+}
+
+.image-placeholder {
     width: 100%;
     height: auto;
     min-height: 220px;
-  }
-  .img-prueba {
-    max-width: 100%;
-    max-height: none;
+}
+
+.img-prueba {
+    max-width: 65%;
+    max-height: 100%;
     height: auto;
-  }
-  /* Evitar que los circulos se salgan */
-  .rojo {
-    left: -20px;
-    bottom: -80px;
-  }
-  .amarillo {
-    right: -20px;
-    top: -300px;
-  }
+    display: block;
+}
+
+.galeria {
+    grid-template-columns: repeat(1, 1fr);
+    width: 80%;
+}
+
   /* Secciones con width fijo -> fluido */
-  .por-que-elegirnos {
+.por-que-elegirnos {
     width: 92%;
     padding: 28px 14px;
-  }
-  .portafolio-titulo {
-    width: 92%;
-  }
+}
 
+.portafolio-titulo {
+    width: 92%;
+}
   /* Adaptación de Nuestro Servicios */
-  .servicios {
+.servicios {
     grid-template-columns: repeat(2, 1fr); /* Hago que los cuadros se formen de a dos columnas */
-    grid-template-rows: repeat(3, 1fr) /* y de a tres filas */
-  }
+}
+
   /* Formulario */
-  .div-container {
+.div-container {
     width: 92%;
     height: auto;
-  }
-  .div-form-header {
+}
+
+.div-form-header {
     width: 92%;
-  }
-  form {
+}
+
+form {
     width: 92%;
     grid-template-columns: 1fr;
-  }
-  .full-width,
-  button,
-  .final-message {
+}
+
+.full-width,
+button,
+.final-message {
     grid-column: span 1;
-  }
+}
+
   /* Mapa: columna */
-  .div-map-container {
+.div-map-container {
     flex-direction: column;
     width: 92%;
     gap: 16px;
-  }
-  .map {
+}
+
+.map {
     width: 100%;
     min-width: 0;
     max-width: 100%;
     height: 320px;
-  }
-  .img-section-map {
+}
+
+.img-section-map {
     width: 100%;
     max-width: 100%;
-  }
+}
+
   /* Footer */
-  .footer-container {
+.footer {
+    border-radius: 0;
+}
+
+.footer-container {
     justify-content: flex-start;
-  }
-  .copyright {
+}
+
+.copyright {
     width: 92%;
-  }
+}
 }
 /* ===== Móvil chico ===== */
 @media (max-width: 480px) {
@@ -996,7 +1044,7 @@ button {
   }
 
   .nav-links {
-    gap: 10px;
+    gap: 18px;
   }
 
   .btn-primary,
@@ -1017,7 +1065,6 @@ button {
   }
 
   /* Cualquier bloque con ancho fijo: que sea fluido */
-  .por-que-elegirnos,
   .div-container,
   .div-form-header,
   form,
@@ -1034,7 +1081,12 @@ button {
   }
 
   /* Imagen hero: tenía width fija (420px) */
-  .image-box,
+  .image-box {
+    width: 100%;
+    max-width: 480px;
+    margin-inline: auto;
+  }
+
   .image-placeholder {
     max-width: 100%;
     width: 100%;
@@ -1043,12 +1095,13 @@ button {
   /* Map: min-width te rompe en pantallas chicas */
   .map {
     min-width: 0;
-    width: 100%;
+    width: 90%;
     max-width: 100%;
+    margin-bottom: 10px;
   }
 
   .img-section-map {
-    width: 100%;
+    width: 90%;
     max-width: 100%;
   }
 
@@ -1065,17 +1118,28 @@ button {
 
     /* El hero ya no debe superponerse */
   .hero {
-    margin-bottom: 120px;
+    margin-bottom: 0;
   }
 
   /* Imagen del hero: que fluya normal */
   .hero-image {
     position: static;
+    display: flex;
+    justify-content: center;
+    width: 100%;
   }
 
   /* Cualquier imagen grande arriba */
   .image-box {
     margin-bottom: 0;
+  }
+
+  .img-prueba {
+    width: auto;
+    max-width: 100%;
+    height: 100%;
+    object-fit: contain;
+    margin: 0 auto;
   }
 
   /* Servicios bajan correctamente */
@@ -1086,5 +1150,50 @@ button {
 
   .image-placeholder{
     height: 220px;
+  }
+}
+
+@media (max-width: 480px) {
+  .final-message {
+    font-size: 13px;
+    line-height: 1.4;
+    text-wrap: balance;
+  }
+
+  .servicios {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    margin: 24px auto;
+    padding: 0 14px;
+  }
+
+  .card {
+    padding: 14px;
+    border-left-width: 4px;
+  }
+
+  .card .material-symbols-outlined {
+    font-size: 20px;
+  }
+
+  .card h4 {
+    font-size: 0.9rem;
+    line-height: 1.2;
+    padding-bottom: 8px;
+  }
+
+  .card p {
+    font-size: 0.82rem;
+    line-height: 1.3;
+    margin-bottom: 8px;
+  }
+
+  .tags {
+    gap: 4px;
+  }
+
+  .tag {
+    padding: 4px 8px;
+    font-size: 0.75rem;
   }
 }
