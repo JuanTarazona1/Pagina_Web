@@ -3,17 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Agencia de Diseño digital empresa especializada en crear publicidad para tu empresa. Creamos experiencias únicas para tu marca. Aqui veras nuestra seccion para poder conocer un poco mas sobre como nos puedes contactar y que comenzemos con tu proyecto.">
-    <meta name="keywords" content="publicidad, marketing, marca, exposicion, llamativos, letreros, avisos, pendones, Señalizacion, diseño">
+    <meta name="description" content="Agencia de diseño digital especializada en publicidad visual. Aquí encontrarás cómo contactarnos y comenzar tu proyecto.">
+    <meta name="keywords" content="publicidad, marketing, marca, exposición, letreros, avisos, pendones, señalización, diseño">
     <meta name="robots" content="index, follow">
     <meta name="author" content="Diseño Digital">
     <meta name="publisher" content="Diseño Digital">
     <!-- <link rel="canonical" href="https://tudominio.com/"> --> <!-- !IMPORTANTE -->
     <title>Diseño Digital | Contacto</title>
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
     <link rel="stylesheet" href="Styles/Contacto.css">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="shortcut icon" href="/Imagenes/Logo.webp" type="image/x-icon">
+    <link rel="shortcut icon" href="Imagenes/Logo-removebg-preview.webp" type="image/x-icon">
 </head>
 <body>
     <!-- ?Comienza el header -->
@@ -36,7 +37,7 @@
 <!-- ?Comienza hero-contacto -->
 <section>
     <div class="hero-contacto">
-        <h2>Contactanos</h2>
+        <h1>Contáctanos</h1>
         <p>Estamos listos para hacer realidad tu proyecto publicitario. Contáctanos y obtén una cotización personalizada.</p>
     </div>
 </section>
@@ -79,20 +80,20 @@
                 <div class="card amarillo">
                     <div class="material-symbols-outlined">schedule</div>
                     <div class="content amarillo">
-                        <h3>Horarios de Atencion</h3>
-                        <p>Lun - Vie: 8:00 a 12:00 y de 2:00 a 6:00</p>
-                        <p class="highlight">Sábados: 8:00 a 1:00</p>
-                        <p class="subtext">Domingos: Cerrado</p>
+                        <h3>Horarios de atención</h3>
+                        <p>Lun - Vie: 8:20 a 12:00 y de 2:00 a 5:50</p>
+                        <p class="highlight">Sáb: 8:30 a 12:30</p>
+                        <p class="subtext">Dom: Cerrado</p>
                     </div>
                 </div>
             </div>
         </div>
         <div class="image-section">
-            <img class="img-historia" id="galeria-imagenes1" src="https://picsum.photos/600/400?random=1">
+            <img class="img-historia" id="galeria-imagenes1" src="Imagenes/Fachada de impresión digital y diseño.png">
         </div>
         <div class="container-metricbox">
             <div class="metric-box">
-                <span>¡Visitanos!</span>
+                <span>¡Visítanos!</span>
                 <p>Estamos ubicados en el centro de la ciudad</p>
                 <button onclick="window.open('https:www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d497.4220254257493!2d-73.63725771508177!3d4.146198700016423!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3e2de408b732e1%3A0xb4b794374e6c9502!2sDise%C3%B1o%20Digital!5e0!3m2!1ses-419!2sco!4v1756528464086!5m2!1ses-419!2sco', '_blank')">Ver en maps</button>
             </div>
@@ -131,7 +132,7 @@
             <div class="container-pregun">
                 <div class="contenido-pregun">
                     <h3>¿Atienden proyectos fuera de Villavicencio?</h3>
-                    <p>Sí, atendemos proyectos en todo el meta. Para proyectos fuera de villavicencio, coordinamos visitas técnicas y logística de instalación con costo adicional según la distancia.</p>
+                    <p>Sí, atendemos proyectos en todo el Meta. Para proyectos fuera de Villavicencio, coordinamos visitas técnicas y logística de instalación con costo adicional según la distancia.</p>
                 </div>
             </div>
         </div>
@@ -146,31 +147,31 @@
         </div>
         <form id="contact-form" enctype="multipart/form-data" method="post">
         <div class="form-group">
-            <label for="nombres">Nombres *</label>
+            <label for="nombre">Nombres*</label>
             <input type="text" id="nombre" name="nombre" placeholder="Ingresa tus nombres" required>
         </div>
         <div class="form-group">
-            <label for="apellidos">Apellidos *</label>
+            <label for="apellidos">Apellidos*</label>
             <input type="text" id="apellidos" name="apellidos" placeholder="Ingresa tus apellidos" required>
         </div>
         <div class="form-group">
-            <label for="correo">Correo Electrónico *</label>
+            <label for="correo">Correo Electrónico*</label>
             <input type="email" id="correo" name="correo" placeholder="ejemplo@correo.com" required>
         </div>
         <div class="form-group">
-            <label for="empresa">Nombre de la Compañía (Opcional)</label>
-            <input type="text" id="compañia" name="compañia" placeholder="Nombre de tu empresa">
+            <label for="compania">Nombre de la Compañía (Opcional)</label>
+            <input type="text" id="compania" name="compania" placeholder="Nombre de tu empresa">
         </div>
         <div class="form-group">
-            <label for="telefono">Teléfono *</label>
+            <label for="telefono">Teléfono*</label>
             <input type="tel" id="telefono" name="telefono" placeholder="300 123 4567" required>
         </div>
         <div class="form-group">
-            <label for="asunto">Asunto *</label>
-            <input type="text" id="asunto" name="asunto" placeholder="Pendon, parasol, volantes, etc" required>
+            <label for="asunto">Asunto*</label>
+            <input type="text" id="asunto" name="asunto" placeholder="Pendón, parasol, volantes, etc." required>
         </div>
         <div class="form-group full-width">
-        <label for="mensaje">Mensaje *</label>
+        <label for="mensaje-textarea">Mensaje*</label>
         <textarea id="mensaje-textarea" name="mensaje" maxlength="1000" placeholder="Describe detalladamente tu proyecto" required></textarea>
         <div class="char-counter" id="char-counter">0/1000 caracteres</div>
         <div class="form-group">
@@ -179,10 +180,10 @@
         </div>
         </div>
             <button class="btn-form" type="submit">Enviar Solicitud</button>
-        <p class="final-message">
+        <p class="final-message" aria-live="polite">
         Bríndanos tu información de contacto con tu pedido y en seguida nos comunicaremos contigo.</p>
         </form>
-        <script src="/js/Funcionamiento.js"></script>
+        <script src="js/Funcionamiento.js"></script>
     </div>
 </section>
 <!-- ?Termina cuentanos -->
@@ -193,20 +194,19 @@
             <h2 class="h2-logo">DiseñoDigital</h2>
             <p class="footer-p">Expertos en publicidad visual. Creamos avisos que impactan y generan resultados para tu negocio.</p>
             <div class="social-icons">
-                <div><a href="#"><i class="fa-brands fa-tiktok"></i></a></div>
-                <div><a href="#"><i class="fab fa-instagram"></i></a></div>
-                <div><a href="#"><i class="fab fa-twitter"></i></a></div>
+                <div><a href="https://www.tiktok.com/@ddigitalpub"><i class="fa-brands fa-tiktok"></i></a></div>
+                <div><a href="https://www.instagram.com/ddigitalpublicidad/"><i class="fab fa-instagram"></i></a></div>
             </div>
         </div>
         <div class="footer-section">
             <h3>Servicios</h3>
             <ul>
             <li>Letreros Comerciales</li>
-            <li>Señalizacion Corporativa</li>
-            <li>Diseño Vehicular</li>
+            <li>Señalización Corporativa</li>
+            <li>Stickers y vinilos</li>
             <li>Publicidad Exterior</li>
             <li>Sublimaciones</li>
-            <li>Señalizacion Vial</li>
+            <li>Señalización Vial</li>
             </ul>
         </div>
         <div class="footer-section">
@@ -218,11 +218,12 @@
         </div>
         <div class="footer-section">
             <h3>Horarios</h3>
-            <p><i class="material-symbols-outlined">schedule</i> Lun - Vie: 8:00 a 12:00 y de 2:00 a 6:00</p>
-            <p><i class="material-symbols-outlined">schedule</i> Sáb: 8:00 - 1:00 Dom: Cerrado</p>
+            <p><i class="material-symbols-outlined">schedule</i> Lun - Vie: 8:20 a 12:00 y de 2:00 a 5:50</p>
+            <p><i class="material-symbols-outlined">schedule</i> Sáb: 8:30 a 12:30</p>
+            <p><i class="material-symbols-outlined">schedule</i> Dom: Cerrado</p>
         </div>
         <div class="copyright">
-        <p class="copyright-p">© 2025 DiseñoDigital. Todos los derechos reservados.</p>
+        <p class="copyright-p">© 2027 DiseñoDigital. Todos los derechos reservados.</p>
         </div>
     </div>
 </footer>
