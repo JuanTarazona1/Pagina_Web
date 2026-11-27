@@ -35,19 +35,22 @@ header {
 }
 
 .navbar {
-    max-width: 1200px;
-    margin: auto;
-    padding: 15px;
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 15px 3vw;
     display: flex;
-    justify-content: space-between;
     justify-content: flex-end;
     align-items: center;
 }
 
 .nav-links {
-    list-style: none;
     display: flex;
+    align-items: center;
     gap: 40px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
 .nav-links a {
@@ -73,11 +76,11 @@ header {
     text-align: center;
     margin: auto;
     margin-top: 80px;
-    margin-bottom: 160px;
+    margin-bottom: 95px;
     width: 580px;
 }
 
-.hero-contacto h2 {
+.hero-contacto h1 {
     font-size: 52px;
     font-weight: 700;
     padding: 10px;
@@ -87,6 +90,8 @@ header {
     color: #666;
     font-size: 17px;
     line-height: 25px;
+    text-wrap: balance;
+    line-height: 1.4;
 }
 
 .container-informacion {
@@ -354,6 +359,9 @@ header {
 
 .div-form p {
     color: #747474;
+    text-wrap: balance;
+    line-height: 1.4;
+    padding-bottom: 20px;
 }
 
 .div-form-header {
@@ -609,6 +617,10 @@ img { max-width: 100%; height: auto; display: block; }
   position: relative;
 }
 
+.container-informacion > *{
+  min-width: 0;
+}
+
 /* La imagen del costado (derecha) */
 .image-section{
   flex: 1 1 420px;
@@ -639,10 +651,20 @@ img { max-width: 100%; height: auto; display: block; }
   margin-bottom: 0;
 }
 
-/* Caja "Visitanos": NO superponer con margin-top negativo */
+.informacion-contenedor .card{
+  min-width: 0;
+}
+
+.informacion-contenedor .content{
+  flex: 1;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+/* Caja "Visítanos": evitar superponerla con un margen superior negativo */
 .container-metricbox{
   position: static;
-  margin: 18px 0 0;         /* antes margin-left auto + margin-top -300 */
+  margin: auto;         /* antes margin-left auto + margin-top -300 */
   max-width: 560px;
   padding: 0 40px 30px;     /* acompaña al padding del texto */
   background: transparent;
@@ -718,7 +740,7 @@ form{
     justify-content: center;
   }
 
-  .hero-contacto h2{ font-size: 40px; }
+  .hero-contacto h1{ font-size: 40px; }
 
   /* la info y la imagen se apilan mejor */
   .container-informacion{
@@ -745,60 +767,70 @@ form{
 }
 
 /* ===========================
-   MOBILE (<= 768px)
+MOBILE (<= 768px)
 =========================== */
 @media (max-width: 768px){
-  .head img{
+
+.head img{
     position: static;
-    margin: 0;
+    margin: auto;
     height: 38px;
     width: 38px;
-  }
+}
 
-  .navbar{ padding: 12px; }
-  .nav-links a{ font-size: 14px; }
+.navbar{ padding: 12px; }
+.nav-links a{ font-size: 14px; }
 
-  .hero-contacto{
+.hero-contacto{
     margin-top: 50px;
     margin-bottom: 90px;
-  }
-  .hero-contacto h2{ font-size: 34px; }
+}
+.hero-contacto h1{ font-size: 34px; }
 
-  .div-container-informacion{
+.div-container-informacion{
     padding: 18px;
-  }
+}
 
-  /* cards: que no hagan zoom exagerado en móvil */
-  .card:hover{ transform: none; }
+/* cards: que no hagan zoom exagerado en móvil */
+.card:hover{ transform: none; }
 
-  /* Form: 2 columnas -> 1 */
-  form{
+/* Form: 2 columnas -> 1 */
+form{
     grid-template-columns: 1fr;
     gap: 14px;
     padding: 16px;
-  }
+}
 
-  .full-width,
-  button,
-  .final-message{
+.full-width,
+button,
+.final-message{
     grid-column: span 1;
-  }
+}
 
-  .div-form{ margin: 22px 0 0; }
-  .div-form-header h4{ font-size: 20px; }
+.div-form{ margin: 22px 0 0; }
+.div-form-header h4{ font-size: 20px; }
 
-  .container-preguntas h3{ font-size: 26px; }
+.container-preguntas h3{ font-size: 26px; }
 
-  .footer-container{
+.footer {
+    border-radius: 0;
+}
+.footer-container{
     justify-content: flex-start;
-  }
+    }
 }
 
 /* ===========================
    MOBILE CHICO (<= 480px)
 =========================== */
 @media (max-width: 480px){
-  .hero-contacto h2{ font-size: 30px; }
+  .final-message{
+    font-size: 13px;
+    line-height: 1.4;
+    text-wrap: balance;
+  }
+
+  .hero-contacto h1{ font-size: 30px; }
 
   .div-container-informacion h2{ font-size: 26px; }
   .div-container-informacion p{ font-size: 15px; }

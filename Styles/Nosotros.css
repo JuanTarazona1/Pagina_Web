@@ -35,19 +35,22 @@ header {
 }
 
 .navbar {
-    max-width: 1200px;
-    margin: auto;
-    padding: 15px;
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 15px 3vw;
     display: flex;
-    justify-content: space-between;
     justify-content: flex-end;
     align-items: center;
 }
 
 .nav-links {
-    list-style: none;
     display: flex;
+    align-items: center;
     gap: 40px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
 .nav-links a {
@@ -77,7 +80,7 @@ header {
     width: 580px;
 }
 
-.hero-nosotros h2 {
+.hero-nosotros h1 {
     font-size: 52px;
     font-weight: 700;
     padding: 10px;
@@ -87,6 +90,7 @@ header {
     color: #666;
     font-size: 17px;
     line-height: 25px;
+    margin-bottom: -90px;
 }
 
 .container-historia {
@@ -649,7 +653,7 @@ img {
     justify-content: center;
   }
 
-  .hero-nosotros h2 {
+  .hero-nosotros h1 {
     font-size: 40px;
   }
 
@@ -685,7 +689,7 @@ img {
 @media (max-width: 768px) {
   .head img {
     position: static;
-    margin: 0;
+    margin: auto;
     height: 38px;
     width: 38px;
   }
@@ -703,8 +707,14 @@ img {
     margin-bottom: 90px;
   }
 
-  .hero-nosotros h2 {
+  .hero-nosotros h1 {
     font-size: 34px;
+  }
+
+  .hero-nosotros p {
+    font-size: 16px;
+    white-space: normal;
+    padding-bottom: 30px;
   }
 
   /* Historia: apilar y que la imagen no tenga "min-height gigante" */
@@ -715,27 +725,7 @@ img {
 
   .image-section {
     min-height: auto;
-    padding: 16px 16px 22px;
-  }
-
-  /* Badge y textos: mantener dentro de la imagen sin posiciones raras */
-  .badge {
-    bottom: 14px;
-    right: 14px;
-    width: 120px;
-    height: auto;
-    padding: 10px 12px;
-  }
-
-  .image-section .material-symbols-outlined {
-    bottom: 58px;
-    right: 110px;
-  }
-
-  .span-experiencia {
-    bottom: 44px;
-    right: 24px;
-    font-size: 12px;
+    padding-top: 0;
   }
 
   /* Métricas: grilla 2 columnas (mejor que flex en móvil) */
@@ -785,7 +775,7 @@ img {
    MOBILE CHICO (<= 480px)
 ========================================= */
 @media (max-width: 480px) {
-  .hero-nosotros h2 {
+  .hero-nosotros h1 {
     font-size: 30px;
   }
 
